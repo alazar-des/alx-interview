@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ Minimum operation. """
 import math
-from typing import List
 
 
-def primeFactorial(n: int) -> List[int]:
+def primeFactorial(n):
     """ resturn list of prime factors of a number. """
     factors = []
     while n % 2 == 0:
@@ -22,6 +21,6 @@ def primeFactorial(n: int) -> List[int]:
     return factors
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """ add all the prime factors. """
     return int(sum(primeFactorial(n)))
