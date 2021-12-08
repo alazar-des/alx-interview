@@ -23,6 +23,6 @@ def primeFactorial(n):
 
 def minOperations(n):
     """ add all the prime factors. """
-    if n == 0 or type(n) is not int:
+    if n <= 0 or type(n) is not int:
         return 0
     return int(sum(primeFactorial(n)))
