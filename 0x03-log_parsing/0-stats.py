@@ -8,7 +8,8 @@ def printStat(info):
     """ Print info. """
     print("File size: {}".format(info["file_size"]))
     for key, value in info["status_code"].items():
-        print("{}: {}".format(key, value))
+        if value != 0:
+            print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
@@ -38,12 +39,12 @@ if __name__ == "__main__":
             if re.match(rgx, line):
                 status_code = line.split('"')[2].split(" ")[1]
                 file_size = line.split('"')[2].split(" ")[2]
-                count %= 10
                 if status_code in info["status_code"].keys():
                     info["status_code"][status_code] += 1
                     info["file_size"] += int(file_size)
-                    if count == 0:
-                        printStat(info)
+            count %= 10
+            if count == 0:
+                printStat(info)
     except KeyboardInterrupt:
         printStat(info)
         raise
