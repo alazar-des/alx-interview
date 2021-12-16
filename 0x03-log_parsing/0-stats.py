@@ -30,7 +30,7 @@ def handler(sig, frame):
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, handler)
+    """signal.signal(signal.SIGINT, handler)"""
 
     rgx = re.compile(r'^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.)'
                      r'{3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\s'
