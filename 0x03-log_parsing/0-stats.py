@@ -5,11 +5,10 @@ import sys
 
 def printStat(info):
     """ Print info. """
-    if info["file_size"] != 0:
-        print("File size: {}".format(info["file_size"]))
-        for key, value in info["status_code"].items():
-            if value != 0:
-                print("{}: {}".format(key, value))
+    print("File size: {}".format(info["file_size"]))
+    for key, value in info["status_code"].items():
+        if value != 0:
+            print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
@@ -34,8 +33,9 @@ if __name__ == "__main__":
                 status_code = line.split(" ")[-2]
                 file_size = line.split(" ")[-1]
                 if status_code in info["status_code"].keys():
-                    info["status_code"][status_code] += 1
                     info["file_size"] += int(file_size)
+                    if info["file_size"] != 0:
+                        info["status_code"][status_code] += 1
             except Exception:
                 pass
             count %= 10
