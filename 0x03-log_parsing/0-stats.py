@@ -5,10 +5,11 @@ import sys
 
 def printStat(info):
     """ Print info. """
-    print("File size: {}".format(info["file_size"]))
-    for key, value in info["status_code"].items():
-        if value != 0:
-            print("{}: {}".format(key, value))
+    if info["file_size"] != 0:
+        print("File size: {}".format(info["file_size"]))
+        for key, value in info["status_code"].items():
+            if value != 0:
+                print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
