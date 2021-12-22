@@ -6,7 +6,7 @@ import sys
 def printStat(info):
     """ Print info. """
     print("File size: {}".format(info["file_size"]))
-    for key, value in info["status_code"].items():
+    for key, value in sorted(info["status_code"].items()):
         if value != 0:
             print("{}: {}".format(key, value))
 
