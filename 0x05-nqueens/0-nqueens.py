@@ -13,8 +13,12 @@ def nqueens(queens_pos, col, N):
     i = len(queens_pos)
     if i >= N:
         print(queens_pos)
-        queens_pos = [[0, queens_pos[0][1] + 1]]
-        return nqueens(queens_pos, 0, N)
+        if queens_pos[-1][1] == N - 1:
+            del queens_pos[-1]
+            i -= 1
+        col = queens_pos[-1][1] + 1
+        del queens_pos[-1]
+        i -= 1
 
     pos_flag = True
     for j in range(col, N):
@@ -29,7 +33,7 @@ def nqueens(queens_pos, col, N):
             return nqueens(queens_pos, 0, N)
 
     if not pos_flag:
-        while(i > 0):
+        while (i > 0):
             i -= 1
             col = queens_pos[i][1] + 1
             if i == 0:
