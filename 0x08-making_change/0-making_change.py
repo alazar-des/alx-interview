@@ -6,6 +6,8 @@
 def makeChange(coins, total):
     """return the smalles combination of possible changes
     """
+    if total <= 0:
+        return 0
     coins.sort(reverse=True)
     while coins:
         coin = 0
