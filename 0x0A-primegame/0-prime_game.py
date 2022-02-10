@@ -19,8 +19,8 @@ def isWinner(x, nums):
     """return name of the player that won the most round"""
     countMaria = 0
     countBen = 0
-    for n in nums:
-        primes = sieveOfEratosthenes(n)
+    for n in range(x):
+        primes = sieveOfEratosthenes(nums[n])
         if len(primes) % 2 != 0:
             countMaria += 1
         else:
