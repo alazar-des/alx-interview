@@ -17,8 +17,6 @@ def sieveOfEratosthenes(n):
 
 def isWinner(x, nums):
     """return name of the player that won the most round"""
-    if x == 0:
-        return None
     countMaria = 0
     countBen = 0
     for n in nums:
